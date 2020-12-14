@@ -21,7 +21,7 @@ namespace RC4Lib
             _j = 0;
             _state = new byte[256];
 
-            SetupKey(key);
+            SetKey(key);
         }
 
 
@@ -56,7 +56,7 @@ namespace RC4Lib
 
         }
 
-        private void SetupKey(byte[] key)
+        private void SetKey(byte[] key)
         {
             for (int i = 0; i < _state.Length; i++)
             {
