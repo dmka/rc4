@@ -2,8 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "Build",
             "command": "dotnet",
+            "group": "build",
             "type": "process",
             "args": [
                 "build",
@@ -14,27 +15,14 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/RC4Lib.Test/RC4Lib.Test.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
+            "label": "Watch Tests",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "watch",
-                "run",
+                "-p",
                 "${workspaceFolder}/RC4Lib.Test/RC4Lib.Test.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "test",
             ],
             "problemMatcher": "$msCompile"
         }
