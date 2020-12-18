@@ -66,9 +66,7 @@ namespace RC4Lib
             for (int i = 0, j = 0; i < _state.Length; i++)
             {
                 j = (byte)(j + _state[i] + key[i % key.Length]);
-                byte t = _state[i];
-                _state[i] = _state[j];
-                _state[j] = t;
+                (_state[i], _state[j]) = (_state[j], _state[i]);
             }
         }
 
@@ -78,9 +76,7 @@ namespace RC4Lib
             {
                 _i = (byte)(_i + 1);
                 _j = (byte)(_j + _state[_i]);
-                byte t = _state[_i];
-                _state[_i] = _state[_j];
-                _state[_j] = t;
+                (_state[_i], _state[_j]) = (_state[_j], _state[_i]);
                 byte r = _state[(byte)(_state[_i] + _state[_j])];
                 outputBuffer[outputOffset++] = (byte)(inputBuffer[inputOffset++] ^ r);
             }
